@@ -5,7 +5,7 @@ let users = [
 ];
 
 /*
-*   Get all users
+*   Get all users 
 *   Method GET
 *   Private
 */
@@ -14,7 +14,7 @@ const index = (req, res) => {
         .json({
             status: true,
             message: 'Users fetched successfully',
-            users: users,
+            users: users
         });
 }
 
@@ -24,7 +24,7 @@ const index = (req, res) => {
 *   Private
 */
 const store = (req, res) => {
-    const {name, email, password, gender} = req.body;
+    const { name, email, password, gender } = req.body;
 
     if (!name || name.trim().length == 0) {
         res.status(400);
@@ -60,7 +60,7 @@ const store = (req, res) => {
         .json({
             status: true,
             message: 'Users created successfully',
-            user: user,
+            user: user
         });
 }
 
@@ -90,7 +90,7 @@ const show = (req, res) => {
 */
 const update = (req, res) => {
     const userId = parseInt(req.params.id);
-    const {name, email, password, gender} = req.body;
+    const { name, email, password, gender } = req.body;
 
     const user = users.find(user => user.id === userId) ;
     if (!user) {
